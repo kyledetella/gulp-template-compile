@@ -12,7 +12,7 @@ module.exports = function (options) {
 	function compiler (file) {
 		var name = typeof options.name === 'function' && options.name(file) || file.relative;
 		var namespace = options.namespace || 'JST';
-		var NSwrapper = '(function() {(window["'+ namespace +'"] = window["'+ namespace +'"] || {})["'+ name.replace(/\\/g, '/') +'"] = ';
+		var NSwrapper = '(function() {' + namespace + '["'+ name.replace(/\\/g, '/') +'"] = ';
 
 		var template = tpl(file.contents.toString(), false, options.templateSettings).source;
 
